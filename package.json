@@ -1,0 +1,47 @@
+{
+  "name": "gklkioskeventslot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjailbird/gklKioskEventSlot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjailbird/gklKioskEventSlot/issues"
+  },
+  "homepage": "https://github.com/jjailbird/gklKioskEventSlot#readme",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^7.0.1",
+    "react-scripts": "0.9.5"
+  },
+  "dependencies": {
+    "install": "^0.10.1",
+    "lodash": "^4.17.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-iframe": "^1.1.0",
+    "react-live-clock": "^2.0.1",
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "react-swf": "^1.0.6",
+    "react-tab-panel": "^2.2.7",
+    "react-touch-screen-keyboard": "^0.1.14",
+    "react-websocket": "^1.1.7",
+    "redux": "^3.6.0"
+  }
+}
