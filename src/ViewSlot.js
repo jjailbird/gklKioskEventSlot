@@ -11,8 +11,8 @@ export default class ViewSlot extends Component {
         <div className="head">
           <div className="title">Slot Machine</div>
           <Iframe url="http://localhost:3000/slot-machine/" 
-            width="800px"
-            height="800px"
+            width="100%"
+            height="1920"
             id="myId"
             className="myClassname"
             display="initial"

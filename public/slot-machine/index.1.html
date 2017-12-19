@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Spin Two Three - Horizontal Example</title>
+  <link rel="stylesheet" href="/css/spin-two-three.css">
+  <link rel="stylesheet" href="/css/eye-candy.css">
+  <script>
+    var spinB;
+    var unitTotal = 3;
+    var allocRow = 1; // 슬롯 배당 열
+    var slotValues = [0, 0, 0];
+    var slotNumbers = [9, 9, 9];
+    var slotIds = [0, 0, 0];
+    var audioRing = new Audio('/wav/ding.mp3');
+
+    function ding() {
+      console.log('audioRing');
+      audioRing.play();
+    }
+    
+    function checkValues() {
+      var slotValues = [0,0,0];
+      for(i=0;i<3;i++) {
+        var slices = document.getElementById('slot' + i.toString()).children;
+        slotValues[i] = slices[1].dataset.value;
+      }
+      console.log(slotValues);
+    }
+
+    function onStart() {
+      // spinB.shuffle();
+
+      slotNumbers = document.getElementById('inputSlotNumbers').value.split(" ");
+      
+      spinB.setSlotNumbers(slotNumbers);
+      // spinB.setSlotNumbers(slotNumbers);
+      
+    }
+
+    function _onRecomplete() {
+      //console.log('_onRecomplete', i);
+      //audioRing.play();
+      //console.log('audioRing.play()', i);
+      //checkValues();
+    }
+
+    function onComplete(e) {
+      // console.log(e);
+      
+      for(i=0;i<unitTotal;i++) {
+        var slice = e.slots[i].getSlice(allocRow);
+        slotValues[i] = slice.dataset.value;
+        if (slotValues[i] != slotNumbers[i]) {
+          // alert("not match!");
+          // setTimeout(function() {spinB.next(i)}, 300);
+          // console.log('not match',e.slots[i]);
+          var slot = document.getElementById('slot' + i.toString());
+          var rc = _onRecomplete.bind(this);
+          TweenLite.to(slot, 0.99, {
+            top: '-33%',
+            ease: Cubic.easeInOut,
+            onComplete: _onRecomplete
+          });
+        }
+      }
+
+      
+      if(slotValues[0] == slotValues[1] && slotValues[1] == slotValues[2]) {
+        // console.log('Jackpot!');
+        checkValues();
+        // audioRing.play();
+        // console.log('audioRing.play()', i);
+      }
+      
+    }
+
+    function spinWheel(no) {
+      spinB.spin(no);
+    }
+
+    function spinAll() {
+      spinB.shuffle();
+      spinB.spin(0);
+      setTimeout(function(){spinB.spin(1);}, 100);
+      setTimeout(function(){spinB.spin(1);}, 250);
+      
+    }
+
+    window.onload = function() {
+      // 2000일때 정확도 높음;
+      spinB = new SpinTwoThree(document.querySelector("#spin-b"), "spin-b", 100, 2000);
+      // spinB.usePixels(true);
+      /*
+      for(i=0;i<unitTotal;i++) {
+        spinB.shuffle(i);
+      }
+      */
+      // spinB.setSlotNumbers(slotNumbers);
+      spinB.setCallbackComplete(onComplete);
+      spinB.setCallbackStart(onStart);
+    }
+  </script>
+</head>
+<body>
+  <div class="">
+    <div class="controls">
+      <input id="inputSlotNumbers" values="" />
+      <a href="#" class="spin-two-three-spin spin-all">SPIN ALL</a> -
+      <br>
+      <a href="javascript:spinWheel(0)">SPIN-manual</a>
+      <a href="javascript:spinAll()" >SPIN ALL</a>
+      <br>
+      <a href="javascript:ding()">Ding~</a>
+    </div>
+    <br>
+  
+    
+    <div class="spin-two-three horizontal" id="spin-b">
+      <div class="wheel">
+        <div id="slot0" class="slices">
+          <div class="slice"  data-value="0"><img src="/img/0.png"></div>
+          <div class="slice"  data-value="1"><img src="/img/1.png"></div>
+          <div class="slice"  data-value="2"><img src="/img/2.png"></div>
+          <div class="slice"  data-value="3"><img src="/img/3.png"></div>
+          <div class="slice"  data-value="4"><img src="/img/4.png"></div>
+          <div class="slice"  data-value="5"><img src="/img/5.png"></div>
+          <div class="slice"  data-value="6"><img src="/img/6.png"></div>
+          <div class="slice"  data-value="7"><img src="/img/7.png"></div>
+          <div class="slice"  data-value="8"><img src="/img/8.png"></div>
+          <div class="slice"  data-value="9"><img src="/img/9.png"></div>
+        </div>
+      </div>
+      <div class="wheel">
+        <div id="slot1" class="slices">
+            <div class="slice"  data-value="0"><img src="/img/0.png"></div>
+            <div class="slice"  data-value="1"><img src="/img/1.png"></div>
+            <div class="slice"  data-value="2"><img src="/img/2.png"></div>
+            <div class="slice"  data-value="3"><img src="/img/3.png"></div>
+            <div class="slice"  data-value="4"><img src="/img/4.png"></div>
+            <div class="slice"  data-value="5"><img src="/img/5.png"></div>
+            <div class="slice"  data-value="6"><img src="/img/6.png"></div>
+            <div class="slice"  data-value="7"><img src="/img/7.png"></div>
+            <div class="slice"  data-value="8"><img src="/img/8.png"></div>
+            <div class="slice"  data-value="9"><img src="/img/9.png"></div>
+        </div>
+      </div>
+      <div class="wheel">
+        <div id="slot2" class="slices">
+            <div class="slice"  data-value="0"><img src="/img/0.png"></div>
+            <div class="slice"  data-value="1"><img src="/img/1.png"></div>
+            <div class="slice"  data-value="2"><img src="/img/2.png"></div>
+            <div class="slice"  data-value="3"><img src="/img/3.png"></div>
+            <div class="slice"  data-value="4"><img src="/img/4.png"></div>
+            <div class="slice"  data-value="5"><img src="/img/5.png"></div>
+            <div class="slice"  data-value="6"><img src="/img/6.png"></div>
+            <div class="slice"  data-value="7"><img src="/img/7.png"></div>
+            <div class="slice"  data-value="8"><img src="/img/8.png"></div>
+            <div class="slice"  data-value="9"><img src="/img/9.png"></div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/libs/plugins/CSSPlugin.min.js"></script>
+  <script src="/js/libs/TweenLite.min.js"></script>
+  <script src="/js/polyfills.js"></script>
+  <script src="/js/slotMachine.js"></script>
+
+</body>
+</html>

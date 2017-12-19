@@ -1,11 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Spin Two Three - Horizontal Example</title>
   <link rel="stylesheet" href="/css/spin-two-three.css">
-  <link rel="stylesheet" href="/css/eye-candy.css">
+  <link rel="stylesheet" href="/css/gklEvent.slot.css">
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="/js/libs/jquery-3.2.1.min.js"></script>
+  <!-- Popper JS -->
+  <script src="/js/libs/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="/js/libs/bootstrap.min.js"></script> 
   <script>
     var spinB;
     var unitTotal = 3;
@@ -30,7 +38,7 @@
     }
 
     function onStart() {
-      // spinB.shuffle();
+      spinB.shuffle();
 
       slotNumbers = document.getElementById('inputSlotNumbers').value.split(" ");
       
@@ -116,52 +124,60 @@
     </div>
     <br>
   
-    
-    <div class="spin-two-three horizontal" id="spin-b">
-      <div class="wheel">
-        <div id="slot0" class="slices">
-          <div class="slice"  data-value="0"><img src="/img/0.png"></div>
-          <div class="slice"  data-value="1"><img src="/img/1.png"></div>
-          <div class="slice"  data-value="2"><img src="/img/2.png"></div>
-          <div class="slice"  data-value="3"><img src="/img/3.png"></div>
-          <div class="slice"  data-value="4"><img src="/img/4.png"></div>
-          <div class="slice"  data-value="5"><img src="/img/5.png"></div>
-          <div class="slice"  data-value="6"><img src="/img/6.png"></div>
-          <div class="slice"  data-value="7"><img src="/img/7.png"></div>
-          <div class="slice"  data-value="8"><img src="/img/8.png"></div>
-          <div class="slice"  data-value="9"><img src="/img/9.png"></div>
-        </div>
-      </div>
-      <div class="wheel">
-        <div id="slot1" class="slices">
-            <div class="slice"  data-value="0"><img src="/img/0.png"></div>
-            <div class="slice"  data-value="1"><img src="/img/1.png"></div>
-            <div class="slice"  data-value="2"><img src="/img/2.png"></div>
-            <div class="slice"  data-value="3"><img src="/img/3.png"></div>
-            <div class="slice"  data-value="4"><img src="/img/4.png"></div>
-            <div class="slice"  data-value="5"><img src="/img/5.png"></div>
-            <div class="slice"  data-value="6"><img src="/img/6.png"></div>
-            <div class="slice"  data-value="7"><img src="/img/7.png"></div>
-            <div class="slice"  data-value="8"><img src="/img/8.png"></div>
-            <div class="slice"  data-value="9"><img src="/img/9.png"></div>
-        </div>
-      </div>
-      <div class="wheel">
-        <div id="slot2" class="slices">
-            <div class="slice"  data-value="0"><img src="/img/0.png"></div>
-            <div class="slice"  data-value="1"><img src="/img/1.png"></div>
-            <div class="slice"  data-value="2"><img src="/img/2.png"></div>
-            <div class="slice"  data-value="3"><img src="/img/3.png"></div>
-            <div class="slice"  data-value="4"><img src="/img/4.png"></div>
-            <div class="slice"  data-value="5"><img src="/img/5.png"></div>
-            <div class="slice"  data-value="6"><img src="/img/6.png"></div>
-            <div class="slice"  data-value="7"><img src="/img/7.png"></div>
-            <div class="slice"  data-value="8"><img src="/img/8.png"></div>
-            <div class="slice"  data-value="9"><img src="/img/9.png"></div>
+    <div class="container d-flex h-100">
+      <div class="row justify-content-center align-self-center">
+        <div class="spin-two-three horizontal" id="spin-b">
+
+          <div class="wheel">
+            <div id="slot0" class="slices">
+              <div class="slice"  data-value="0"><img src="/img/00.png"></div>
+              <div class="slice"  data-value="1"><img src="/img/01.png"></div>
+              <div class="slice"  data-value="2"><img src="/img/02.png"></div>
+              <div class="slice"  data-value="3"><img src="/img/03.png"></div>
+              <div class="slice"  data-value="4"><img src="/img/04.png"></div>
+              <div class="slice"  data-value="5"><img src="/img/05.png"></div>
+              <div class="slice"  data-value="6"><img src="/img/06.png"></div>
+              <div class="slice"  data-value="7"><img src="/img/07.png"></div>
+              <div class="slice"  data-value="8"><img src="/img/08.png"></div>
+              <div class="slice"  data-value="9"><img src="/img/09.png"></div>
+            </div>
           </div>
+          <div class="wheel">
+            <div id="slot0" class="slices">
+              <div class="slice"  data-value="0"><img src="/img/00.png"></div>
+              <div class="slice"  data-value="1"><img src="/img/01.png"></div>
+              <div class="slice"  data-value="2"><img src="/img/02.png"></div>
+              <div class="slice"  data-value="3"><img src="/img/03.png"></div>
+              <div class="slice"  data-value="4"><img src="/img/04.png"></div>
+              <div class="slice"  data-value="5"><img src="/img/05.png"></div>
+              <div class="slice"  data-value="6"><img src="/img/06.png"></div>
+              <div class="slice"  data-value="7"><img src="/img/07.png"></div>
+              <div class="slice"  data-value="8"><img src="/img/08.png"></div>
+              <div class="slice"  data-value="9"><img src="/img/09.png"></div>
+            </div>
+          </div>
+          <div class="wheel">
+            <div id="slot0" class="slices">
+              <div class="slice"  data-value="0"><img src="/img/00.png"></div>
+              <div class="slice"  data-value="1"><img src="/img/01.png"></div>
+              <div class="slice"  data-value="2"><img src="/img/02.png"></div>
+              <div class="slice"  data-value="3"><img src="/img/03.png"></div>
+              <div class="slice"  data-value="4"><img src="/img/04.png"></div>
+              <div class="slice"  data-value="5"><img src="/img/05.png"></div>
+              <div class="slice"  data-value="6"><img src="/img/06.png"></div>
+              <div class="slice"  data-value="7"><img src="/img/07.png"></div>
+              <div class="slice"  data-value="8"><img src="/img/08.png"></div>
+              <div class="slice"  data-value="9"><img src="/img/09.png"></div>
+            </div>
+          </div>                    
+
+        </div>
+      </div>
+
       </div>
     </div>
-  </div>
+    
+
 
   <script src="/js/libs/plugins/CSSPlugin.min.js"></script>
   <script src="/js/libs/TweenLite.min.js"></script>
