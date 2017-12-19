@@ -13,7 +13,44 @@
   <!-- Popper JS -->
   <script src="/js/libs/popper.min.js"></script>
   <!-- Latest compiled JavaScript -->
-  <script src="/js/libs/bootstrap.min.js"></script> 
+  <script src="/js/libs/bootstrap.min.js"></script>
+  <script src="/js/libs/reconnecting-websocket.min.js"></script>
+  <script type="text/javascript">
+    // var ws =  new WebSocket(`ws://localhost:8181/`);
+    var ws =  new ReconnectingWebSocket(`ws://localhost:8181/`);
+    var cardResult; // 카드 승인 결과 메시지 
+
+    // 웹 소켓 서버로부터 데이터 수신
+    ws.onmessage = function (event) {
+      var result = JSON.parse(event.data);
+      if(result.Device == 'payment') {
+        cardResult = JSON.parse(result.Message);
+        console.log("cardResult data:", cardResult);
+      }
+
+      console.log("recieved data:", result);
+    }
+
+    // 웹 소켓 서버에 메시지 전달
+    var send2Ws = function(sMessage) {
+      if(ws.readyState) {
+        ws.send(sMessage);
+      }
+      else {
+        ws.refresh();
+      }
+    }
+
+    var sendMessage = function(){
+      var jsonApi = new Object();
+      jsonApi.device = "dtp";
+      jsonApi.command = "print";
+      
+      var sMessage = JSON.stringify(jsonApi); 
+      console.log('jsonApi', sMessage);
+      send2Ws(sMessage);
+    }
+  </script>
   <script>
     var spinB;
     var unitTotal = 3;
@@ -116,11 +153,15 @@
     <div class="controls">
       <input id="inputSlotNumbers" values="" />
       <a href="#" class="spin-two-three-spin spin-all">SPIN ALL</a> -
+      <!--
       <br>
       <a href="javascript:spinWheel(0)">SPIN-manual</a>
       <a href="javascript:spinAll()" >SPIN ALL</a>
       <br>
       <a href="javascript:ding()">Ding~</a>
+      -->
+      <br>
+      <input type="button" id="btnSend2Web" value="Send to Websocket" onclick="sendMessage()" />
     </div>
     <br>
   
