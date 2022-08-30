@@ -35,7 +35,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-iframe": "^1.1.0",
-    "react-live-clock": "^2.0.1",
+    "react-live-clock": "^6.0.6",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
     "react-swf": "^1.0.6",
